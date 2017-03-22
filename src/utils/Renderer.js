@@ -1,4 +1,3 @@
-import CleanCSS from 'clean-css';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import objectAssign from 'object-assign';
@@ -10,7 +9,7 @@ import CSS from './CSS';
 
 const renderTemplate = (element, options, generateCustomTemplate) => {
   const bodyContent = ReactDOMServer.renderToStaticMarkup(element);
-  const minifiedHeadCSS = new CleanCSS().minify(options.headCSS).styles;
+  const minifiedHeadCSS = options.headCSS;
   options = objectAssign({}, {
     lang: sanitizer.escape(options.lang),
     dir: sanitizer.escape(options.dir),
